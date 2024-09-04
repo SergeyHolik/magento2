@@ -12,6 +12,7 @@
 ## Main Functionalities
 ProductStock
 
+
 ## Installation
 \* = in production please use the `--keep-generated` option
 
