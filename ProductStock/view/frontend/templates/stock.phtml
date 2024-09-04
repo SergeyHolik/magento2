@@ -1,0 +1,33 @@
+<?php
+/**
+ * Qty product left in stock
+ */
+
+declare(strict_types=1);
+
+use Biotus\ProductStock\Block\Stock;
+use Magento\Framework\Escaper;
+
+/** @var Escaper $escaper */
+/** @var Stock $block */
+?>
+<esi:include src="<?= $block->getUrl('biotus_productstock/ajax/stock', ['_current' => true]) ?>" />
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "productStockQty": {
+                "url": "<?= $block->getUrl('biotus_productstock/ajax/stock', ['_current' => true]) ?>"
+        }
+    }
+}
+</script>
+
+<div class="flex border-t border-gray-300 py-2 last:mb-6 last:border-b ">
+    <span class="w-1/2 text-left text-gray-700 product-detail-label">
+        <?= $escaper->escapeHtml('Qty product left in stock') ?>
+    </span>
+    <span id="product-stock-qty" class="w-1/2 ml-2 text-left text-gray-900 product-detail-value">
+        <?= $escaper->escapeHtml($block->getStockQty()) ?>
+    </span>
+</div>

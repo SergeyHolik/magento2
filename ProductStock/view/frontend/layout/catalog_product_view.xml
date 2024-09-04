@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="Biotus_ProductStock::js/stock-qty.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <referenceContainer name="product.info.main">
+                <referenceBlock name="product.detail.page">
+                    <referenceBlock name="product.info">
+                        <action method="setTemplate">
+                            <argument name="template" xsi:type="string">Biotus_ProductStock::product/view/product-info.phtml</argument>
+                        </action>
+                        <block class="Biotus\ProductStock\Block\Stock" name="stock" as="stock"
+                               template="Biotus_ProductStock::stock.phtml">
+                            <arguments>
+                                <argument name="ttl" xsi:type="number">0</argument>
+                            </arguments>
+                        </block>
+                    </referenceBlock>
+                </referenceBlock>
+            </referenceContainer>
+        </referenceContainer>
+	</body>
+</page>
+
+
